@@ -1,0 +1,9 @@
+.vlogo-bg:hover {
+  filter: drop-shadow(0 0 1em #1a79c2);
+  transition-property: all ease-in-out;
+  transition-duration: 1000ms;
+};
+
+.vlogo-bg {
+  position: relative;
+}
