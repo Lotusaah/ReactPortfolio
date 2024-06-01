@@ -4,6 +4,7 @@
   transition-duration: 1000ms;
 };
 
-.vlogo-bg {
-  position: relative;
-}
+.menu {
+ border-color: aliceblue;
+ border-radius: 4px
+};
