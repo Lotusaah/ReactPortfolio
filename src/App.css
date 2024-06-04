@@ -1,0 +1,18 @@
+/* Ensure the html, body, and root container take up full height */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* The main app container should use flexbox to structure the layout */
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* The content should expand to fill available space */
+.content {
+  flex: 1;
+}

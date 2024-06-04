@@ -3,8 +3,3 @@
   transition-property: all ease-in-out;
   transition-duration: 1000ms;
 };
-
-.menu {
- border-color: aliceblue;
- border-radius: 4px
-};

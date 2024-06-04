@@ -68,7 +68,7 @@ export const Tictactoe = () => {
   };
 
   return (
-    <div style={{ height: 'calc(100vh - 172px)' }} className="bg-brand-300">
+    <div style={{ height: 'calc(100vh - 164px)' }} className="bg-brand-300">
       <h1 className="new-font text-center font-bold p-2vh">Welcome To</h1>
       <h1 className="new-font text-center font-bold p-2vh pt-0">Tic-Tac-Toe</h1>
       <div className="flex bg-brand-400 mt-3vh">
