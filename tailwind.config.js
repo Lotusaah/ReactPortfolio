@@ -6,9 +6,19 @@ export default {
   ],
   theme: {
     extend: {
+      textShadow: {
+        'sm': '0 1px 2px rgba(0, 0, 0, 0.05)',
+        'default': '0 1px 3px rgba(0, 0, 0, 0.1)',
+        'md': '0 4px 6px rgba(0, 0, 0, 0.1)',
+        'lg': '0 10px 15px rgba(0, 0, 0, 0.1)',
+        'xl': '0 20px 25px rgba(0, 0, 0, 0.1)',
+        '2xl': '0 25px 50px rgba(0, 0, 0, 0.25)',
+        'none': 'none',
+      },
       flexGrow: {
         '1': '1',
         '2': '2',
+        '3': '3',
       },
       height: {
         '1vh': '1vh',
@@ -90,6 +100,34 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function({ addUtilities }) {
+      const newUtilities = {
+        '.text-shadow-sm': {
+          textShadow: '0 1px 2px rgba(0, 0, 0, 0.1)',
+        },
+        '.text-shadow': {
+          textShadow: '0 1px 3px rgba(0, 0, 0, 0.2)',
+        },
+        '.text-shadow-md': {
+          textShadow: '0 4px 6px rgba(0, 0, 0, 0.2)',
+        },
+        '.text-shadow-lg': {
+          textShadow: '0 10px 15px rgba(0, 0, 0, 0.3)',
+        },
+        '.text-shadow-xl': {
+          textShadow: '0 20px 25px rgba(0, 0, 0, 0.1)',
+        },
+        '.text-shadow-2xl': {
+          textShadow: '0 25px 50px rgba(0, 0, 0, 0.25)',
+        },
+        '.text-shadow-none': {
+          textShadow: 'none',
+        },
+      }
+
+      addUtilities(newUtilities, ['responsive', 'hover'])
+    }
+  ],
 }
 
