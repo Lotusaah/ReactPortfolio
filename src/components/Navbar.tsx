@@ -26,7 +26,7 @@ export const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/tictactoe" className="text-gray-300 hover:text-white underline-offset">
+            <Link to="/project" className="text-gray-300 hover:text-white underline-offset">
               Projects
             </Link>
           </li>
@@ -45,7 +45,7 @@ export const Navbar = () => {
       </div>
 
       {isOpen && (
-        <nav className="md:hidden fixed top-16 right-0 w-full z-10 bg-gray-800 p-4">
+        <nav className="md:hidden absolute top-16 right-0 w-full z-10 bg-gray-800 p-4">
           <ul className="flex flex-col space-y-3">
             <li>
               <Link to="/" className="text-gray-300 hover:text-white underline-offset" onClick={() => setIsOpen(false)}>
@@ -53,7 +53,7 @@ export const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link to="/tictactoe" className="text-gray-300 hover:text-white underline-offset" onClick={() => setIsOpen(false)}>
+              <Link to="/project" className="text-gray-300 hover:text-white underline-offset" onClick={() => setIsOpen(false)}>
                 Projects
               </Link>
             </li>

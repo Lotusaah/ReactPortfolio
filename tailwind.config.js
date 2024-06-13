@@ -23,6 +23,8 @@ export default {
       height: {
         '1vh': '1vh',
         '10vh': '10vh',
+        '15vh': '15vh',
+        '20vh': '20vh',
         '25vh': '25vh',
         '30vh': '30vh',
         '40vh': '40vh',
@@ -35,6 +37,7 @@ export default {
       width: {
         '1vh': '1vh',
         '10vh': '10vh',
+        '20vh': '20vh',
         '25vh': '25vh',
         '30vh': '30vh',
         '40vh': '40vh',

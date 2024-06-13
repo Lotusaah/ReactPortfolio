@@ -3,9 +3,9 @@ import './App.css'; // Ensure this file includes the global CSS
 import { Home } from './pages/Home';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
-import { Tictactoe } from './pages/Tictactoe.tsx';
 import { Contact } from './pages/Contact.tsx';
 import { Error } from './components/404.tsx';
+import { Project } from './pages/projects/Project.tsx';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<Home />} />
-            <Route path="/tictactoe" element={<Tictactoe />} />
+            <Route path="/project/*" element={<Project />} />
             <Route path="/Contact" element={<Contact />} />
             <Route path="*" element={<Error />} />
           </Routes>
