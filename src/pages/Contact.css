@@ -1,9 +1,51 @@
-
-.hover:hover {
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.552);
+:root {
+  --ff: "Montserrat", sans-serif;
+  --brand50: #C9D5E6;
+  --brand100: #9FB4D2;
+  --brand200: #7192BE;
+  --brand300: #546C8C;
+  --brand400: #354458;
+  --brand500: #2C3849;
+  --transition: 0.3s ease-in-out;
 }
 
-.linkedin {
+.contact-linkedin {
   margin: 0;
   padding: 0;
+}
+
+.contact-new-font {
+  font-size: 7vh;
+  height: 11vh;
+}
+
+.contact-gradient-border {
+  background: linear-gradient(var(--brand300), var(--brand300)) padding-box,
+  linear-gradient(90deg, var(--brand50) 0%, var(--brand500) 100%) border-box;
+  border: solid 5px transparent;
+  border-radius: 8px;
+}
+
+.contact-dashing {
+  background: linear-gradient(270deg, var(--brand50), var(--brand400), var(--brand50));
+  background-size: 300% 300%;
+  animation: bg 10s ease-in infinite;
+}
+
+.contact-dashing:hover {
+  animation: bg 2s ease-in-out infinite;
+}
+
+@keyframes bg {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 100%;}
+  100% {background-position: 0% 50%;}
+}
+
+.contact-moody {
+  box-shadow: 0 0 8px var(--brand50);
+}
+
+.contact-moody:hover {
+  box-shadow: 0 0 40px var(--brand50);
 }

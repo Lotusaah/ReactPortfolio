@@ -20,7 +20,7 @@ const StackedElement: React.FC<StackedElementProps> = ({ id, player, onClick }) 
   const imgSrc = player === 'White' ? '../../components/icons8-circled-x-100.png' : player === 'Blue' ? '../../components/icons8-x-coordinate-100.png' : '';
 
   return (
-    <div id={id} className="bg-gray-200 p-4 text-center border border-gray-400" onClick={onClick}>
+    <div id={id} className="bg-gray-200 p-4vh text-center border border-gray-400" onClick={onClick}>
       {player && <img src={imgSrc} alt={player} />}
     </div>
   );
@@ -33,7 +33,7 @@ interface FlexItemProps {
 
 const FlexItem: React.FC<FlexItemProps> = ({ item, onClickElement }) => {
   return (
-    <div className="flex flex-col space-y-2 p-4 border border-gray-300">
+    <div className="flex flex-col space-y-2 p-1vh border border-gray-300">
       {item.elements.map((element, index) => (
         <StackedElement key={index} id={element.id} player={element.player} onClick={() => onClickElement(element.id)} />
       ))}
@@ -98,6 +98,13 @@ export const Tictactoe: React.FC = () => {
       }))
     );
 
+    items.row.elements.forEach((element: any) => {
+      if (element.player === 'null') {
+        console.log('null');
+      }
+    });
+
+
     setPlayer(prevPlayer => (prevPlayer === 'White' ? 'Blue' : 'White'));
   };
 
@@ -106,10 +113,11 @@ export const Tictactoe: React.FC = () => {
     setPlayer(null);
   };
 
+
   return (
     <div style={{ height: 'calc(100vh - 164px)' }} className="bg-brand-300">
-      <h1 className="new-font text-center font-bold p-2vh">Welcome To</h1>
-      <h1 className="new-font text-center font-bold p-2vh pt-0">Tic-Tac-Toe</h1>
+      <h1 className="tic-new-font text-center font-bold p-2vh tic-dashing bg-clip-text text-transparent">Welcome To</h1>
+      <h1 className="tic-new-font text-center font-bold p-2vh pt-0 tic-dashing bg-clip-text text-transparent">Tic-Tac-Toe</h1>
       <div className="flex bg-brand-400 mt-3vh">
         <div className="flex-grow bg-brand-400 hidden sm:block lg:flex-grow-1"></div>
         <div className="flex-grow-2 bg-brand-400 h-40vh">
@@ -122,10 +130,13 @@ export const Tictactoe: React.FC = () => {
         <div className="flex-grow bg-brand-400 hidden sm:block lg:flex-grow-1"></div>
       </div>
       <div className="text-center mt-4">
-        <button onClick={() => setPlayer('White')} className="bg-white text-black px-4 py-2 m-2 rounded hover:bg-brand-100 hover:shadow-lg transition duration-300">White</button>
-        <button onClick={() => setPlayer('Blue')} className="bg-blue-500 text-white px-4 py-2 m-2 rounded hover:bg-brand-100 hover:shadow-lg transition duration-300">Blue</button>
-        <button onClick={resetGame} className="bg-red-700 text-white px-4 py-2 m-2 rounded hover:bg-brand-100 hover:shadow-lg transition duration-300">Reset</button>
+        <button onClick={() => setPlayer('White')} className="tic-moody tic-dashing bg-white text-black px-4 py-2 m-2 rounded transition duration-300">White</button>
+        <button onClick={() => setPlayer('Blue')} className="tic-moody-blue tic-dashing-blue text-white px-4 py-2 m-2 rounded transition duration-300">Blue</button>
+        <button onClick={resetGame} className="tic-moody-red tic-dashing-red text-white px-4 py-2 m-2 rounded transition duration-300">Reset</button>
       </div>
     </div>
   );
 };
+
+
+

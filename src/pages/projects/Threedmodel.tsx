@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import './Project.css';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
@@ -88,6 +89,6 @@ export const Threedmodel: React.FC = () => {
   }, []);
 
   return (
-      <div className='rounded' ref={mountRef} />
+    <div ref={mountRef} className="w-full h-full rounded-lg overflow-hidden bg-white shadow-lg project-moody transition-all" />
   );
 };

@@ -1,4 +1,88 @@
-.new-font {
+:root {
+  --ff: "Montserrat", sans-serif;
+  --brand50: #C9D5E6;
+  --brand100: #9FB4D2;
+  --brand200: #7192BE;
+  --brand300: #546C8C;
+  --brand400: #354458;
+  --brand500: #2C3849;
+  --red: #d21b1b;
+  --blue: #254fd7;
+  --transition: 0.3s ease-in-out;
+}
+
+.tic-linkedin {
+  margin: 0;
+  padding: 0;
+}
+
+.tic-new-font {
   font-size: 7vh;
   height: 11vh;
+}
+
+.tic-gradient-border {
+  background: linear-gradient(var(--brand300), var(--brand300)) padding-box,
+  linear-gradient(90deg, var(--brand50) 0%, var(--brand500) 100%) border-box;
+  border: solid 5px transparent;
+  border-radius: 8px;
+}
+
+.tic-dashing {
+  background: linear-gradient(270deg, var(--brand50), var(--brand400), var(--brand50));
+  background-size: 300% 300%;
+  animation: bg 10s ease-in infinite;
+}
+
+.tic-dashing:hover {
+  animation: bg 2s ease-in-out infinite;
+}
+
+.tic-dashing-red {
+  background: linear-gradient(270deg, var(--brand50), var(--red), var(--brand50));
+  background-size: 300% 300%;
+  animation: bg 10s ease-in infinite;
+}
+
+.tic-dashing-red:hover {
+  animation: bg 2s ease-in-out infinite;
+}
+
+.tic-dashing-blue {
+  background: linear-gradient(270deg, var(--brand50), var(--blue), var(--brand50));
+  background-size: 300% 300%;
+  animation: bg 10s ease-in infinite;
+}
+
+.tic-dashing-blue:hover {
+  animation: bg 2s ease-in-out infinite;
+}
+@keyframes bg {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 100%;}
+  100% {background-position: 0% 50%;}
+}
+
+.tic-moody {
+  box-shadow: 0 0 8px var(--brand50);
+}
+
+.tic-moody:hover {
+  box-shadow: 0 0 20px var(--brand50);
+}
+
+.tic-moody-red {
+  box-shadow: 0 0 8px var(--red);
+}
+
+.tic-moody-red:hover {
+  box-shadow: 0 0 20px var(--red);
+}
+
+.tic-moody-blue {
+  box-shadow: 0 0 8px var(--blue);
+}
+
+.tic-moody-blue:hover {
+  box-shadow: 0 0 20px var(--blue);
 }
