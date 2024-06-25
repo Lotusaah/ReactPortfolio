@@ -17,11 +17,11 @@ interface StackedElementProps {
 }
 
 const StackedElement: React.FC<StackedElementProps> = ({ id, player, onClick }) => {
-  const imgSrc = player === 'White' ? '../../components/icons8-circled-x-100.png' : player === 'Blue' ? '../../components/icons8-x-coordinate-100.png' : '';
+  const imgSrc = player === 'Square' ? '/images/icons8-circled-x-100.png' : player === 'Circle' ? '/images/icons8-x-coordinate-100.png' : '';
 
   return (
-    <div id={id} className="bg-gray-200 p-4vh text-center border border-gray-400" onClick={onClick}>
-      {player && <img src={imgSrc} alt={player} />}
+    <div id={id} className="bg-gray-200 p-5vh text-center border border-gray-400" onClick={onClick}>
+      {player && <img style={{width: '30px', height: '30px'}} src={imgSrc} alt={player} />}
     </div>
   );
 };
@@ -33,7 +33,7 @@ interface FlexItemProps {
 
 const FlexItem: React.FC<FlexItemProps> = ({ item, onClickElement }) => {
   return (
-    <div className="flex flex-col space-y-2 p-1vh border border-gray-300">
+    <div className="flex flex-col space-y-4 p-1vh border border-gray-300">
       {item.elements.map((element, index) => (
         <StackedElement key={index} id={element.id} player={element.player} onClick={() => onClickElement(element.id)} />
       ))}
@@ -81,8 +81,38 @@ export const Tictactoe: React.FC = () => {
     },
   ];
 
-  const [player, setPlayer] = useState<string | null>(null);
+  const [player, setPlayer] = useState<string>('Square');
   const [items, setItems] = useState<Item[]>(initialItems);
+
+  const checkWin = (items: Item[]) => {
+    const elements = items.flatMap(item => item.elements);
+
+    const lines = [
+      // Horizontal
+      ['item-1-1', 'item-1-2', 'item-1-3'],
+      ['item-2-1', 'item-2-2', 'item-2-3'],
+      ['item-3-1', 'item-3-2', 'item-3-3'],
+      // Vertical
+      ['item-1-1', 'item-2-1', 'item-3-1'],
+      ['item-1-2', 'item-2-2', 'item-3-2'],
+      ['item-1-3', 'item-2-3', 'item-3-3'],
+      // Diagonal
+      ['item-1-1', 'item-2-2', 'item-3-3'],
+      ['item-1-3', 'item-2-2', 'item-3-1'],
+    ];
+
+    for (let line of lines) {
+      const [a, b, c] = line;
+      const elementA = elements.find(element => element.id === a)?.player;
+      const elementB = elements.find(element => element.id === b)?.player;
+      const elementC = elements.find(element => element.id === c)?.player;
+      if (elementA && elementA === elementB && elementA === elementC) {
+        console.log('win');
+        return true;
+      }
+    }
+    return false;
+  };
 
   const onClickElement = (id: string) => {
     if (!player) return;
@@ -98,21 +128,19 @@ export const Tictactoe: React.FC = () => {
       }))
     );
 
-    items.row.elements.forEach((element: any) => {
-      if (element.player === 'null') {
-        console.log('null');
-      }
-    });
+    if (checkWin(items)) {
+      alert(`${player} wins!`);
+      resetGame();
+      return;
+    }
 
-
-    setPlayer(prevPlayer => (prevPlayer === 'White' ? 'Blue' : 'White'));
+    setPlayer(prevPlayer => (prevPlayer === 'Square' ? 'Circle' : 'Square'));
   };
 
   const resetGame = () => {
     setItems(initialItems);
-    setPlayer(null);
+    setPlayer('Square');
   };
-
 
   return (
     <div style={{ height: 'calc(100vh - 164px)' }} className="bg-brand-300">
@@ -130,13 +158,10 @@ export const Tictactoe: React.FC = () => {
         <div className="flex-grow bg-brand-400 hidden sm:block lg:flex-grow-1"></div>
       </div>
       <div className="text-center mt-4">
-        <button onClick={() => setPlayer('White')} className="tic-moody tic-dashing bg-white text-black px-4 py-2 m-2 rounded transition duration-300">White</button>
-        <button onClick={() => setPlayer('Blue')} className="tic-moody-blue tic-dashing-blue text-white px-4 py-2 m-2 rounded transition duration-300">Blue</button>
+        <button onClick={() => setPlayer('Square')} className="tic-moody tic-dashing bg-white text-black px-4 py-2 m-2 rounded transition duration-300">Circle</button>
+        <button onClick={() => setPlayer('Circle')} className="tic-moody-blue tic-dashing-blue text-white px-4 py-2 m-2 rounded transition duration-300">Square</button>
         <button onClick={resetGame} className="tic-moody-red tic-dashing-red text-white px-4 py-2 m-2 rounded transition duration-300">Reset</button>
       </div>
     </div>
   );
 };
-
-
-

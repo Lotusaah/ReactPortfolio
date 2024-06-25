@@ -1,5 +1,5 @@
 import "./Home.css";
-import headshot from '../components/jpeg-format.jpg';
+import headshot from '../../public/images/Headshot.jpg';
 
 export const Home = () => {
   console.log('Image Path:', headshot);

@@ -1,4 +1,5 @@
-import { Threedmodel } from './Threedmodel.tsx';
+import { ClampBase } from './ClampBase.tsx';
+import { Assembly } from './Assembly.tsx';
 import './Project.css';
 
 export const All3D = () => {
@@ -9,12 +10,15 @@ export const All3D = () => {
         <div className="flex-grow-2 z-10 bg-brand-300">
          
         <div className='md:w-100 md:h-100 lg:w-90 lg:h-90'>
-      <Threedmodel />
-    </div>
+          <Assembly />
+        </div>
+        <p>This is a head peice.</p>
+        
           
         </div>
         <div className="flex-grow bg-brand-300 hidden sm:block lg:flex-grow-1"></div>
       </div>
+     
    
    
   </div>

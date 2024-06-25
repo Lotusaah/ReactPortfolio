@@ -5,7 +5,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import clampBase from './3D-files/clamp-base-v2.gltf'; // Import the GLTF file
 
-export const Threedmodel: React.FC = () => {
+export const ClampBase: React.FC = () => {
   const mountRef = useRef<HTMLDivElement | null>(null);
   const modelRef = useRef<THREE.Group | null>(null);
 
@@ -14,12 +14,14 @@ export const Threedmodel: React.FC = () => {
 
     // Set up renderer
     const renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
+    renderer.setSize(window.innerWidth, window.innerHeight / 2);
     mountRef.current.appendChild(renderer.domElement);
 
     // Set up camera
     const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.set(10, 10, 10);
+    camera.aspect = window.innerWidth / (window.innerHeight /2 );
+    camera.updateProjectionMatrix();
 
     // Set up scene
     const scene = new THREE.Scene();
@@ -71,8 +73,8 @@ export const Threedmodel: React.FC = () => {
 
     // Handle window resize
     const handleResize = () => {
-      const width = window.innerWidth / 2;
-      const height = window.innerHeight / 2;
+      const width = window.innerWidth;
+      const height = window.innerHeight /2;
       renderer.setSize(width, height);
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
