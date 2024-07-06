@@ -7,7 +7,7 @@ import subassembly from './3D-files/vise-subassembly.gltf'; // Import the GLTF f
 
 export const Vise: React.FC = () => {
   const mountRef = useRef<HTMLDivElement | null>(null);
-  const modelRef = useRef<THREE.Group | null>(null);
+  const modelGroupRef = useRef<THREE.Group | null>(null);
 
   useEffect(() => {
     if (mountRef.current === null) return;
@@ -42,20 +42,21 @@ export const Vise: React.FC = () => {
     controls.maxDistance = 500;
     controls.maxPolarAngle = Math.PI / 2;
 
+    // Create a group to hold the model
+    const modelGroup = new THREE.Group();
+    scene.add(modelGroup);
+    modelGroupRef.current = modelGroup;
+
     // Load GLTF model
     const loader = new GLTFLoader();
-    console.log('Loading GLTF from:', subassembly);
-
     loader.load(
       subassembly,
       function (gltf) {
         const model = gltf.scene;
-        model.scale.set(130, 130, 130); // Adjust the scale if necessary
-        model.position.set(0, -5, 0);
-        model.rotateOnAxis(new THREE.Vector3(0, 1, 0), THREE.MathUtils.degToRad(23)); // Rotate around Y axis by 23 degrees
-        scene.add(model);
-        modelRef.current = model;
-        console.log('GLTF model added to scene:', model);
+        model.scale.set(250, 250, 250); // Adjust the scale if necessary
+        model.position.set(0, -8, 10); // Adjust model position if necessary
+        modelGroup.add(model);
+        console.log('GLTF model added to group:', model);
       },
       undefined,
       function (error) {
@@ -67,8 +68,8 @@ export const Vise: React.FC = () => {
    const animate = () => {
     requestAnimationFrame(animate);
     controls.update();
-    if (modelRef.current) {
-      modelRef.current.rotation.y += 0.005; // Rotate the model around the Y-axis
+    if (modelGroupRef.current) {
+      modelGroupRef.current.rotation.y += 0.005; // Rotate the model around the Y-axis
     }
     renderer.render(scene, camera);
   };

@@ -19,7 +19,7 @@ export const CHook: React.FC = () => {
 
     // Set up camera
     const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.set(40, 60, 20);
+    camera.position.set(40, 40, 20);
     camera.aspect = window.innerWidth / (window.innerHeight /2 );
     camera.updateProjectionMatrix();
 
@@ -50,8 +50,8 @@ export const CHook: React.FC = () => {
       CHooks,
       function (gltf) {
         const model = gltf.scene;
-        model.scale.set(350, 350, 350); // Adjust the scale if necessary
-        model.position.set(0, -1, 0);
+        model.scale.set(400, 400, 400); // Adjust the scale if necessary
+        model.position.set(0, -10, 0);
         model.rotateOnAxis(new THREE.Vector3(0, 1, 0), THREE.MathUtils.degToRad(23)); // Rotate around Y axis by 23 degrees
         scene.add(model);
         modelRef.current = model;

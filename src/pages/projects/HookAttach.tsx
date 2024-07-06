@@ -7,7 +7,7 @@ import hook from './3D-files/hook-attachment-female.gltf'; // Import the GLTF fi
 
 export const HookAttach: React.FC = () => {
   const mountRef = useRef<HTMLDivElement | null>(null);
-  const modelRef = useRef<THREE.Group | null>(null);
+  const modelGroupRef = useRef<THREE.Group | null>(null);
 
   useEffect(() => {
     if (mountRef.current === null) return;
@@ -20,7 +20,7 @@ export const HookAttach: React.FC = () => {
     // Set up camera
     const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.set(40, 40, 20);
-    camera.aspect = window.innerWidth / (window.innerHeight /2 );
+    camera.aspect = window.innerWidth / (window.innerHeight / 2);
     camera.updateProjectionMatrix();
 
     // Set up scene
@@ -42,20 +42,21 @@ export const HookAttach: React.FC = () => {
     controls.maxDistance = 500;
     controls.maxPolarAngle = Math.PI / 2;
 
+    // Create a group to hold the model
+    const modelGroup = new THREE.Group();
+    scene.add(modelGroup);
+    modelGroupRef.current = modelGroup;
+
     // Load GLTF model
     const loader = new GLTFLoader();
-    console.log('Loading GLTF from:', hook);
-
     loader.load(
       hook,
       function (gltf) {
         const model = gltf.scene;
-        model.scale.set(130, 130, 130); // Adjust the scale if necessary
-        model.position.set(0, -5, 0);
-        model.rotateOnAxis(new THREE.Vector3(0, 1, 0), THREE.MathUtils.degToRad(23)); // Rotate around Y axis by 23 degrees
-        scene.add(model);
-        modelRef.current = model;
-        console.log('GLTF model added to scene:', model);
+        model.scale.set(350, 350, 350); // Adjust the scale if necessary
+        model.position.set(0, -18, 20); // Adjust model position if necessary
+        modelGroup.add(model);
+        console.log('GLTF model added to group:', model);
       },
       undefined,
       function (error) {
@@ -63,21 +64,21 @@ export const HookAttach: React.FC = () => {
       }
     );
 
-   // Animation loop
-   const animate = () => {
-    requestAnimationFrame(animate);
-    controls.update();
-    if (modelRef.current) {
-      modelRef.current.rotation.y += 0.005; // Rotate the model around the Y-axis
-    }
-    renderer.render(scene, camera);
-  };
-  animate();
+    // Animation loop
+    const animate = () => {
+      requestAnimationFrame(animate);
+      controls.update();
+      if (modelGroupRef.current) {
+        modelGroupRef.current.rotation.y += 0.005; // Rotate the group around the Y-axis
+      }
+      renderer.render(scene, camera);
+    };
+    animate();
 
     // Handle window resize
     const handleResize = () => {
       const width = window.innerWidth;
-      const height = window.innerHeight /2;
+      const height = window.innerHeight / 2;
       renderer.setSize(width, height);
       camera.aspect = width / height;
       camera.updateProjectionMatrix();

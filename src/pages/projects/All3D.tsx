@@ -16,14 +16,15 @@ export const All3D = () => {
    
     <h2 className='pb-1vh font-bold transition-all duration-500 text-shadow-xl hover:text-shadow-lg text-3xl'>Multi-use desk basket</h2>
     <p>I used onshape to create these parts above is the Assembly and below are seperate parts.</p>
+    <p className='font-semibold'>(You can click and drage to move item as well as zoom with scroll wheel)</p>
     <div className='p-5vh'>
       <ClampBase />
     </div>
     <div className='p-5vh'>
-      <CHook />
+      <ClampTop />
     </div>
     <div className='p-5vh'>
-      <ClampTop />
+      <CHook />
     </div>
     <div className='p-5vh'>
       <HookAttach />

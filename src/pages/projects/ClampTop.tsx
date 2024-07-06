@@ -50,8 +50,8 @@ export const ClampTop: React.FC = () => {
       Clamptop,
       function (gltf) {
         const model = gltf.scene;
-        model.scale.set(300, 300, 300); // Adjust the scale if necessary
-        model.position.set(-2, -20, -5);
+        model.scale.set(400, 400, 400); // Adjust the scale if necessary
+        model.position.set(-2, -25, -5);
         model.rotateOnAxis(new THREE.Vector3(0, 1, 0), THREE.MathUtils.degToRad(23)); // Rotate around Y axis by 23 degrees
         scene.add(model);
         modelRef.current = model;

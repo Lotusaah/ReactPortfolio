@@ -51,7 +51,7 @@ export const ClampBase: React.FC = () => {
       function (gltf) {
         const model = gltf.scene;
         model.scale.set(100, 100, 100); // Adjust the scale if necessary
-        model.position.set(0, -1, 0);
+        model.position.set(0, -2.3, 0);
         model.rotateOnAxis(new THREE.Vector3(0, 1, 0), THREE.MathUtils.degToRad(23)); // Rotate around Y axis by 23 degrees
         scene.add(model);
         modelRef.current = model;
