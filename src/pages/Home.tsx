@@ -1,5 +1,5 @@
 import "./Home.css";
-import headshot from '../../public/images/Headshot.jpg';
+import headshot from '../../public/images/Head.png';
 
 export const Home = () => {
   console.log('Image Path:', headshot);
@@ -16,7 +16,11 @@ export const Home = () => {
         <div className="flex-grow-2 z-10 bg-brand-300">
          
             <div className="flex h-25vh bg-brand-300 rounded-xl home-gradient-border home-moody transition">
-              <div className="flex items-center justify-center flex-grow-1"><img className="hover transition duration-300 rounded-full w-20vh h-20vh " src={headshot} alt="Headshot" /></div>
+              <div className="flex items-center justify-center flex-grow-1">
+                
+                  <img className="home-moody transition duration-300 rounded-full w-20vh h-20vh object-contain" src={headshot} alt="Headshot" />
+             
+              </div>
               <div className="sm:flex-grow-3 lg:flex-grow-1">
                 <h1 className='m-1vh font-bold'>About Me:</h1>
                 <ul className="m-1vh pl-2vh font-semibold list-disc">

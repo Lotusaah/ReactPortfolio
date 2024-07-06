@@ -12,7 +12,7 @@ export const Matlab = () => {
         <div className="bg-brand-300">
             <h1 className="tic-new-font text-center font-bold p-2vh tic-dashing bg-clip-text text-transparent">Matlab</h1>
 
-            <div className="mt-4vh mb-4vh bg-brand-300 rounded-xl project-gradient-border project-moody transition m-4vh p-2vh">
+            <div className="mt-4vh mb-4vh bg-brand-300 rounded-xl font-semibold project-gradient-border project-moody transition m-4vh p-2vh">
             Hi this is my game project from freshman year engineering class. It is a game inspired by the Paintball game from Pigeon made for ios messages. But I recreated it in Matlab using a game engine prvided by  Ohio State. 
             </div>
           

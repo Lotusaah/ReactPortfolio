@@ -37,6 +37,7 @@ export default {
       width: {
         '1vh': '1vh',
         '10vh': '10vh',
+        '17vh': '17vh',
         '20vh': '20vh',
         '25vh': '25vh',
         '30vh': '30vh',
