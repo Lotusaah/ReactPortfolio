@@ -64,12 +64,15 @@ export const ClampBase: React.FC = () => {
     );
 
     // Animation loop
-    const animate = () => {
-      requestAnimationFrame(animate);
-      controls.update();
-      renderer.render(scene, camera);
-    };
-    animate();
+   const animate = () => {
+    requestAnimationFrame(animate);
+    controls.update();
+    if (modelRef.current) {
+      modelRef.current.rotation.y += 0.005; // Rotate the model around the Y-axis
+    }
+    renderer.render(scene, camera);
+  };
+  animate();
 
     // Handle window resize
     const handleResize = () => {

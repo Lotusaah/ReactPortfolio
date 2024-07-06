@@ -17,7 +17,7 @@ interface StackedElementProps {
 }
 
 const StackedElement: React.FC<StackedElementProps> = ({ id, player, onClick }) => {
-  const imgSrc = player === 'Square' ? '/images/icons8-circled-x-100.png' : player === 'Circle' ? '/images/icons8-x-coordinate-100.png' : '';
+  const imgSrc = player === 'Circle' ? '/images/icons8-x-coordinate-100.png' : player === 'Squre' ? '/images/icons8-circled-x-100.png' : '';
 
   return (
     <div id={id} className="bg-gray-200 p-5vh text-center border border-gray-400" onClick={onClick}>
@@ -81,7 +81,7 @@ export const Tictactoe: React.FC = () => {
     },
   ];
 
-  const [player, setPlayer] = useState<string>('Square');
+  const [player, setPlayer] = useState<string>('Circle');
   const [items, setItems] = useState<Item[]>(initialItems);
 
   const checkWin = (items: Item[]) => {
@@ -117,29 +117,29 @@ export const Tictactoe: React.FC = () => {
   const onClickElement = (id: string) => {
     if (!player) return;
 
-    setItems(prevItems =>
-      prevItems.map(row => ({
-        ...row,
-        elements: row.elements.map(element =>
-          element.id === id && element.player === null
-            ? { ...element, player }
-            : element
-        ),
-      }))
-    );
+    const updatedItems = items.map(row => ({
+      ...row,
+      elements: row.elements.map(element =>
+        element.id === id && element.player === null
+          ? { ...element, player }
+          : element
+      ),
+    }));
 
-    if (checkWin(items)) {
+    setItems(updatedItems);
+
+    if (checkWin(updatedItems)) {
       alert(`${player} wins!`);
       resetGame();
       return;
     }
 
-    setPlayer(prevPlayer => (prevPlayer === 'Square' ? 'Circle' : 'Square'));
+    setPlayer(prevPlayer => (prevPlayer === 'Circle' ? 'Squre' : 'Circle'));
   };
 
   const resetGame = () => {
     setItems(initialItems);
-    setPlayer('Square');
+    setPlayer('Circle');
   };
 
   return (
@@ -158,8 +158,8 @@ export const Tictactoe: React.FC = () => {
         <div className="flex-grow bg-brand-400 hidden sm:block lg:flex-grow-1"></div>
       </div>
       <div className="text-center mt-4">
-        <button onClick={() => setPlayer('Square')} className="tic-moody tic-dashing bg-white text-black px-4 py-2 m-2 rounded transition duration-300">Circle</button>
-        <button onClick={() => setPlayer('Circle')} className="tic-moody-blue tic-dashing-blue text-white px-4 py-2 m-2 rounded transition duration-300">Square</button>
+        <button onClick={() => setPlayer('Circle')} className="tic-moody tic-dashing bg-white text-black px-4 py-2 m-2 rounded transition duration-300">Squre</button>
+        <button onClick={() => setPlayer('Squre')} className="tic-moody-blue tic-dashing-blue text-white px-4 py-2 m-2 rounded transition duration-300">Circle</button>
         <button onClick={resetGame} className="tic-moody-red tic-dashing-red text-white px-4 py-2 m-2 rounded transition duration-300">Reset</button>
       </div>
     </div>

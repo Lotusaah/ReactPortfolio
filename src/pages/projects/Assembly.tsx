@@ -19,7 +19,7 @@ export const Assembly: React.FC = () => {
 
     // Set up camera
     const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.set(30, 40, 20);
+    camera.position.set(40, 40, 20);
     camera.aspect = window.innerWidth / (window.innerHeight /2 );
     camera.updateProjectionMatrix();
 
@@ -50,8 +50,8 @@ export const Assembly: React.FC = () => {
       assembly,
       function (gltf) {
         const model = gltf.scene;
-        model.scale.set(100, 100, 100); // Adjust the scale if necessary
-        model.position.set(0, -1, 0);
+        model.scale.set(130, 130, 130); // Adjust the scale if necessary
+        model.position.set(0, -5, 0);
         model.rotateOnAxis(new THREE.Vector3(0, 1, 0), THREE.MathUtils.degToRad(23)); // Rotate around Y axis by 23 degrees
         scene.add(model);
         modelRef.current = model;
@@ -63,13 +63,16 @@ export const Assembly: React.FC = () => {
       }
     );
 
-    // Animation loop
-    const animate = () => {
-      requestAnimationFrame(animate);
-      controls.update();
-      renderer.render(scene, camera);
-    };
-    animate();
+   // Animation loop
+   const animate = () => {
+    requestAnimationFrame(animate);
+    controls.update();
+    if (modelRef.current) {
+      modelRef.current.rotation.y += 0.005; // Rotate the model around the Y-axis
+    }
+    renderer.render(scene, camera);
+  };
+  animate();
 
     // Handle window resize
     const handleResize = () => {
