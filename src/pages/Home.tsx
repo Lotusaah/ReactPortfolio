@@ -24,8 +24,8 @@ export const Home = () => {
               <div className="sm:flex-grow-3 lg:flex-grow-1">
                 <h1 className='m-1vh font-bold'>About Me:</h1>
                 <ul className="m-1vh pl-2vh font-semibold list-disc">
-                  <li className="m-1vh">I am a incoming Sophmore at the Ohio State University.</li>
-                  <li className="m-1vh">I am studing Mechanical Engineering.</li>
+                  <li className="m-1vh">I am a Sophomore at the Ohio State University.</li>
+                  <li className="m-1vh">I am studying Engineering Physics.</li>
                   <li className="m-1vh">I love tinkering with objects and electronics.</li>
                 </ul>
               </div>
@@ -48,7 +48,7 @@ export const Home = () => {
                 <ul className="m-1vh pl-2vh font-semibold list-disc">
                   <li className="m-1vh">This website using vite, reactjs, threejs, tailwind and aws.</li>
                   <li className="m-1vh">Tic-Tac-Toe game in js.</li>
-                  <li className="m-1vh">3D Models from class projects using CAD Software.</li>
+                  <li className="m-1vh">3D Models from club and class projects using CAD Software.</li>
                   <li className="m-1vh">Matlab game.</li>
                 </ul>
               </div>
