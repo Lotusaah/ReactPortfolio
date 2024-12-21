@@ -5,12 +5,14 @@ import './Project.css';
 import { Tictactoe } from './Tictactoe';
 import { All3D } from './All3D.tsx';
 import { Matlab } from './Matlab.tsx';
+import { Research } from './Research.tsx';
 
 export const Project = () => {
   
   return (
     <div>
       <nav className='flex h-5vh bg-brand-300'>
+        <Link className='project-dashing project-moody flex-grow bg-brand-200 m-1vh rounded text-center font-bold transition duration-3000' to='/project/research'>Research</Link>
         <Link className='project-dashing project-moody flex-grow bg-brand-200 m-1vh rounded text-center font-bold transition duration-300' to='/project/tictactoe'>Tic-Tac-Toe</Link>
         <Link className='project-dashing project-moody flex-grow bg-brand-200 m-1vh rounded text-center font-bold transition duration-300' to='/project/3dmodel'>3D Models</Link>
         <Link className='project-dashing project-moody flex-grow bg-brand-200 m-1vh rounded text-center font-bold transition duration-3000' to='/project/matlab'>Matlab</Link>
@@ -18,6 +20,7 @@ export const Project = () => {
 
       <Routes>
         <Route path='/' element={<ProjectHome />} />
+        <Route path='research' element={<Research />} />
         <Route path='tictactoe' element={<Tictactoe />} />
         <Route path='3dmodel' element={<All3D />} />
         <Route path='matlab' element={<Matlab />} />

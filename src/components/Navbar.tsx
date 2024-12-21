@@ -29,6 +29,9 @@ export const Navbar = () => {
               Projects
             </Link>
             <ul className="absolute left-0 mt-2 w-48 bg-gray-800 rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 delay-200">
+            <li>
+                <Link to="/project/research" className="block px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-700 transition duration-300 hover:rounded-b-md">Research</Link>
+              </li>
               <li>
                 <Link to="/project/tictactoe" className="block px-4 py-2 hover:rounded-t-md text-gray-300 hover:text-white hover:bg-gray-700 transition duration-300">Tic-Tac-Toe</Link>
               </li>

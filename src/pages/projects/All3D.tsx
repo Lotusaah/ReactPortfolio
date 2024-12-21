@@ -43,10 +43,5 @@ export const All3D = () => {
     <div className='p-5vh'>
       <Vise />
     </div>
-    
-      
-     
-   
-   
   </div>
 }
