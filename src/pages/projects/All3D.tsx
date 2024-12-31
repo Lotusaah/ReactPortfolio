@@ -5,7 +5,7 @@ import { ClampTop } from './ClampTop.tsx';
 import { HookAttach } from './HookAttach.tsx';
 import { Suction } from './Suction.tsx';
 import { Vise } from './Vise.tsx';
-import { Payload2 } from './Payload2.tsx';
+import { Payload2 } from './Payload1.tsx';
 import './Project.css';
 
 export const All3D = () => {

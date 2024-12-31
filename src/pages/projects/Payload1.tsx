@@ -2,8 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import './Project.css';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import Payload from './3D-files/Payload2.gltf'; // Import the GLTF file
+import payload from './3D-files/Payload1.gltf'; // Import the GLTF file
 
 export const Payload2: React.FC = () => {
   const mountRef = useRef<HTMLDivElement | null>(null);
@@ -18,9 +19,8 @@ export const Payload2: React.FC = () => {
     mountRef.current.appendChild(renderer.domElement);
 
     // Set up camera
-    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / (window.innerHeight / 2), 0.1, 1000);
     camera.position.set(40, 40, 20);
-    camera.aspect = window.innerWidth / (window.innerHeight /2 );
     camera.updateProjectionMatrix();
 
     // Set up scene
@@ -42,12 +42,16 @@ export const Payload2: React.FC = () => {
     controls.maxDistance = 500;
     controls.maxPolarAngle = Math.PI / 2;
 
-    // Load GLTF model
+    // Load GLTF model with DRACOLoader
     const loader = new GLTFLoader();
-    console.log('Loading GLTF from:', Payload);
+    const dracoLoader = new DRACOLoader();
+    dracoLoader.setDecoderPath('/draco/'); // Replace with the actual path to Draco decoder files
+    loader.setDRACOLoader(dracoLoader);
+
+    console.log('Loading GLTF from:', payload);
 
     loader.load(
-      Payload,
+      payload,
       function (gltf) {
         const model = gltf.scene;
         model.scale.set(130, 130, 130); // Adjust the scale if necessary
@@ -63,21 +67,21 @@ export const Payload2: React.FC = () => {
       }
     );
 
-   // Animation loop
-   const animate = () => {
-    requestAnimationFrame(animate);
-    controls.update();
-    if (modelRef.current) {
-      modelRef.current.rotation.y += 0.005; // Rotate the model around the Y-axis
-    }
-    renderer.render(scene, camera);
-  };
-  animate();
+    // Animation loop
+    const animate = () => {
+      requestAnimationFrame(animate);
+      controls.update();
+      if (modelRef.current) {
+        modelRef.current.rotation.y += 0.005; // Rotate the model around the Y-axis
+      }
+      renderer.render(scene, camera);
+    };
+    animate();
 
     // Handle window resize
     const handleResize = () => {
       const width = window.innerWidth;
-      const height = window.innerHeight /2;
+      const height = window.innerHeight / 2;
       renderer.setSize(width, height);
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
@@ -90,6 +94,9 @@ export const Payload2: React.FC = () => {
       if (mountRef.current) {
         mountRef.current.removeChild(renderer.domElement);
       }
+      renderer.dispose();
+      dracoLoader.dispose(); // Dispose of the DRACOLoader to release resources
+      scene.clear(); // Clear scene objects
     };
   }, []);
 

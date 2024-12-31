@@ -1,20 +1,19 @@
 import React from 'react';
 import './Research.css';
+import afmImage from '../../../public/images/Screenshot 2024-12-26 205124.png'
 
 export const Research = () => {
   return (
-    <div className="min-h-screen bg-slate-100 overflow-auto">
+    <div className="min-h-screen bg-brand-300 overflow-auto">
       {/* Header */}
-      <header className="bg-slate-800 text-white py-4 shadow-lg">
-        <h1 className="text-2xl md:text-3xl font-bold text-center px-4">
-          Atomic Force Microscopy (AFM) & Cantilever Designs
-        </h1>
+      <header className="bg-brand-300 text-center flex items-center justify-center">
+      <h1 className='font-bold transition-all duration-500 text-shadow-xl hover:text-shadow-lg research-dashing research-new-font-3d bg-clip-text text-transparent'> Atomic Force Microscopy (AFM) & Cantilever Designs</h1>
       </header>
 
       {/* Main Content */}
       <main className="p-4 md:p-8 space-y-8">
         {/* Overview Section */}
-        <section className="bg-white rounded-lg shadow-lg p-6 md:flex md:items-center">
+        <section className="bg-white rounded-lg shadow-lg p-6 md:flex md:items-center research-moody transition-all duration-500">
           <div className="md:w-1/2 mb-4 md:mb-0">
             <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-4">Overview of AFM</h2>
             <p className="text-slate-600 leading-relaxed">
@@ -24,23 +23,25 @@ export const Research = () => {
               This powerful tool is used across various fields, including material science, biology, and nanotechnology, to analyze structures, mechanical properties, and molecular interactions.
             </p>
           </div>
-          <div className="md:w-1/2 flex justify-center">
+          <div className="md:w-1/2 flex flex-col items-center">
             <img
-              src="https://via.placeholder.com/300"
+              src='../../../public/images/Screenshot 2024-12-26 205124.png'
               alt="AFM Illustration"
               className="rounded-lg shadow-lg w-full md:w-3/4"
             />
+            <div className=''>Source: University of Greifswald</div>
           </div>
         </section>
 
         {/* Cantilever Design Section */}
-        <section className="bg-white rounded-lg shadow-lg p-6 md:flex md:items-center">
-          <div className="md:w-1/2 flex justify-center order-2 md:order-1">
+        <section className="bg-white rounded-lg shadow-lg p-6 md:flex md:items-center research-moody transition-all duration-500">
+          <div className="md:w-1/2 flex flex-col justify-center order-2 md:order-1">
             <img
-              src="https://via.placeholder.com/300"
+              src="../../../public/images/Screenshot 2024-12-26 204925.png"
               alt="Cantilever Designs"
               className="rounded-lg shadow-lg w-full md:w-3/4"
             />
+            <div>Source:<a className='text-blue-700' target='_blank' href='https://mae.osu.edu/mnmdl'>MNMDL OSU</a></div>
           </div>
           <div className="md:w-1/2 mb-4 md:mb-0 order-1 md:order-2">
             <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-4">Cantilever Designs</h2>
@@ -62,7 +63,7 @@ export const Research = () => {
         </section>
 
         {/* Applications Section */}
-        <section className="bg-white rounded-lg shadow-lg p-6">
+        <section className="bg-white rounded-lg shadow-lg p-6 research-moody transition-all duration-500">
           <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-4">Applications of AFM and Cantilevers</h2>
           <p className="text-slate-600 leading-relaxed">
             AFM is widely used for applications such as:
@@ -72,20 +73,17 @@ export const Research = () => {
             <li>Studying biological samples like DNA and proteins.</li>
             <li>Characterizing nanomaterials for enhanced performance.</li>
           </ul>
-          <div className="mt-6 flex justify-center">
+          <div className="mt-6 flex flex-col justify-center">
             <img
-              src="https://via.placeholder.com/400"
+              src="../../../public/images/VicACCollogen3.6v.PNG"
               alt="Applications of AFM"
-              className="rounded-lg shadow-lg w-full md:w-1/2"
+              className="rounded-lg shadow-lg w-full "
             />
+            <div>Source: Me(My own image of Collagen)</div>
           </div>
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-slate-800 text-white text-center py-4 mt-auto">
-        <p className="text-sm md:text-base">© 2024 Research on AFM & Cantilever Designs. All Rights Reserved.</p>
-      </footer>
     </div>
   );
 };
