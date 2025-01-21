@@ -6,6 +6,9 @@ import path from 'path';
 export default defineConfig({
   plugins: [react()],
   server: {
+    watch: {
+      ignored: ['**/*.glb', '**/*.gltf'],
+    },
     open: true,
   },
   resolve: {
@@ -20,5 +23,5 @@ export default defineConfig({
       },
     },
   },
-  assetsInclude: ['**/*.gltf'],
+  assetsInclude: ['**/*.glb', '**/*.gltf'],
 });

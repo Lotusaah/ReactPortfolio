@@ -4,7 +4,6 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import payload from './3D-files/Payload1.gltf'; // Import the GLTF file
 
 export const Payload2: React.FC = () => {
   const mountRef = useRef<HTMLDivElement | null>(null);
@@ -42,13 +41,12 @@ export const Payload2: React.FC = () => {
     controls.maxDistance = 500;
     controls.maxPolarAngle = Math.PI / 2;
 
-    // Load GLTF model with DRACOLoader
+    // Load GLTF/GLB model with DRACOLoader
+    const payload = '/3d/Payload1.glb'; // Correct path for the GLB file
     const loader = new GLTFLoader();
     const dracoLoader = new DRACOLoader();
-    dracoLoader.setDecoderPath('/draco/'); // Replace with the actual path to Draco decoder files
+    dracoLoader.setDecoderPath('/draco/'); // Path to Draco decoder files
     loader.setDRACOLoader(dracoLoader);
-
-    console.log('Loading GLTF from:', payload);
 
     loader.load(
       payload,
@@ -56,14 +54,13 @@ export const Payload2: React.FC = () => {
         const model = gltf.scene;
         model.scale.set(130, 130, 130); // Adjust the scale if necessary
         model.position.set(0, -5, 0);
-        model.rotateOnAxis(new THREE.Vector3(0, 1, 0), THREE.MathUtils.degToRad(23)); // Rotate around Y axis by 23 degrees
         scene.add(model);
         modelRef.current = model;
-        console.log('GLTF model added to scene:', model);
+        console.log('GLB model added to scene:', model);
       },
       undefined,
       function (error) {
-        console.error('Error loading GLTF file:', error);
+        console.error('Error loading GLB file:', error);
       }
     );
 

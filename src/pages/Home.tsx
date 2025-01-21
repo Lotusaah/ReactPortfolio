@@ -38,7 +38,7 @@ export const Home = () => {
                 <h1 className='m-1vh font-bold'>About Me:</h1>
                 <ul className="m-1vh pl-2vh font-semibold list-disc">
                   <li className="m-1vh">I am a Sophomore at the Ohio State University.</li>
-                  <li className="m-1vh">I am studying Engineering Physics.</li>
+                  <li className="m-1vh">I am studying Engineering Physics with a focus on Electrical Engineering.</li>
                   <li className="m-1vh">I love tinkering with objects and electronics.</li>
                 </ul>
               </div>

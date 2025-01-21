@@ -46,18 +46,22 @@ export const Research = () => {
           <div className="md:w-1/2 mb-4 md:mb-0 order-1 md:order-2">
             <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-4">Cantilever Designs</h2>
             <p className="text-slate-600 leading-relaxed">
-              Cantilevers are the most critical component in AFM. Their design affects sensitivity, resolution, and stability. Below are the main types of cantilever designs used in AFM:
+              Cantilevers are the most critical component in AFM. Their design affects sensitivity, resolution, and stability.
             </p>
             <ul className="list-disc list-inside text-slate-600 mt-4">
               <li>
-                <span className="font-semibold text-slate-800">Triangular Cantilevers:</span> High stability, used in contact mode.
+                <span className="font-semibold text-slate-800">Rectangular Cantilevers:</span>  A flat beam with a sharp tip at the end. Usually made of silicon and coated with metal.
               </li>
               <li>
-                <span className="font-semibold text-slate-800">Rectangular Cantilevers:</span> Enhanced sensitivity, used in tapping mode.
+                <span className="font-semibold text-slate-800">Triangular Cantilevers:</span> A wedge that turns narrower towards the end or tip of the cantilever. It is ideal for soft samples and hiher flexability.
               </li>
               <li>
-                <span className="font-semibold text-slate-800">Custom Nanotube Cantilevers:</span> Specialized for high-resolution imaging.
+                <span className="font-semibold text-slate-800">V-Shaped Cantilevers:</span> "V" shaped, hence the name. Great for contact mode, due to its reduced lateral forces, as well as minimizing twisting.
               </li>
+              <li>
+                <span className="font-semibold text-slate-800">Custom Inner Paddle Cantilevers:</span> Specialized for mitigating cross talk between two characteristics specifically topography and piezoelectric response.
+              </li>
+              
             </ul>
           </div>
         </section>
