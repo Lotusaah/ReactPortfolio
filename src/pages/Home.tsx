@@ -60,9 +60,9 @@ export const Home = () => {
                 <h1 className='m-1vh font-bold'>I have multiple projects including:</h1>
                 <ul className="m-1vh pl-2vh font-semibold list-disc">
                   <li className="m-1vh">This website using vite, reactjs, threejs, tailwind and aws.</li>
-                  <li className="m-1vh">Tic-Tac-Toe game in js.</li>
+                  <li className="m-1vh">Ohio State Engineering Research.</li>
                   <li className="m-1vh">3D Models from club and class projects using CAD Software.</li>
-                  <li className="m-1vh">Matlab game.</li>
+                  <li className="m-1vh">Fun Coding Projects for JS and Matlab.</li>
                 </ul>
               </div>
           </div>
@@ -74,6 +74,7 @@ export const Home = () => {
         <div className="flex md:flex-row flex-col-reverse ">
           <div className="home-gradient-border home-moody z-10 flex-grow-1 transition duration-300 bg-white p-5vh rounded-2xl md:rounded-l-none">
               <div className="sm:flex-grow-3 lg:flex-grow-1">
+              <h1 className='m-1vh font-bold'>My Experiences:</h1>
                 <ul className="m-1vh pl-2vh font-semibold list-disc">
                 <li className="m-2vh">I am an undergraduate research assistant at the Micro/Nano Multiphysical Dynamics Lab.</li>
                   <li className="m-2vh">I worked at Lowes Retail Store as a Merchandising Assosiate in the summar.</li>
@@ -101,6 +102,7 @@ export const Home = () => {
               <div className="sm:flex-grow-3 lg:flex-grow-1">
                 <ul className="m-1vh pl-2vh font-semibold list-disc">
                   <li className="m-1vh">Louis Stokes Alliance Minority Program 3.0 GPA Fall 2023.</li>
+                  <li className="m-1vh">Louis Stokes Alliance Minority Program 3.0 GPA Fall 2024.</li>
                 </ul>
               </div>
           </div>

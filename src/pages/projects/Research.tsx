@@ -86,6 +86,27 @@ export const Research = () => {
             <div>Source: Me(My own image of Collagen)</div>
           </div>
         </section>
+
+        {/* Current Work */}
+        <section className="bg-white rounded-lg shadow-lg p-6 md:flex md:items-center research-moody transition-all duration-500">
+          <div className="md:w-1/2 mb-4 md:mb-0">
+            <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-4">Current Work:</h2>
+            <p className="text-slate-600 leading-relaxed">
+            I am currently working on a Torsional Mode for the Inner Paddle Design to enhance Lateral PFM/AFM imaging. Specifically, this design aims to improve lateral scanning on collagen by incorporating a frequency-aided rotational motion, significantly reducing cross-talk and improving imaging precision. The torsional mode approach provides a more controlled and stable scanning environment, leading to more accurate nanoscale measurements.
+            </p>
+            <p className="text-slate-600 leading-relaxed mt-4">
+          
+            </p>
+          </div>
+          <div className="md:w-1/2 flex flex-col items-center">
+            <img
+              src='../../../public/images/Vid1.gif'
+              alt="AFM Illustration"
+              className="rounded-lg shadow-lg w-full md:w-3/4"
+            />
+            <div className=''>Source: Me</div>
+          </div>
+        </section>
       </main>
 
     </div>
