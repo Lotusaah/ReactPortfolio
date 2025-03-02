@@ -17,7 +17,7 @@ export const Home = () => {
         <div className="flex-grow-1 z-10 bg-brand-300">
          
             <div className="flex h-8vh rounded-xl home-gradient-border-update home-moody transition items-center justify-center">
-              <h1 className="font-bold text-xl">Last Update: 12/20/2024</h1>
+              <h1 className="font-bold text-xl">Last Update: 01/20/2025</h1>
             </div>
           
         </div>
@@ -38,7 +38,7 @@ export const Home = () => {
                 <h1 className='m-1vh font-bold'>About Me:</h1>
                 <ul className="m-1vh pl-2vh font-semibold list-disc">
                   <li className="m-1vh">I am a Sophomore at the Ohio State University.</li>
-                  <li className="m-1vh">I am studying Engineering Physics with a focus on Electrical Engineering.</li>
+                  <li className="m-1vh">I am studying Engineering Physics with a focus in Electrical Engineering.</li>
                   <li className="m-1vh">I love tinkering with objects and electronics.</li>
                 </ul>
               </div>
