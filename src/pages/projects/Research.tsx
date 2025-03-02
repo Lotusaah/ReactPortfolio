@@ -104,7 +104,7 @@ export const Research = () => {
               alt="AFM Illustration"
               className="rounded-lg shadow-lg w-full md:w-3/4"
             />
-            <div className=''>Source: Me</div>
+            <div className=''>Source: Me (Comsol Simulation)</div>
           </div>
         </section>
       </main>
